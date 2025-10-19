@@ -1,14 +1,44 @@
-<div class="container">
-    <div> <p> Item1 </p></div>
-    <div> <p> Item2 </p></div>
-    <div> <p> Item3 </p></div>
-    <div> <p> Item4 </p></div>
-    <div> <p> Item5 </p></div>
-    <div> <p> Item6 </p></div>
-</div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Items</title>
+  <style>
+    /* Use one of these depending on the layout you want */
 
-.container {
-    display: flex;
-    gap: 10px 10px;
-    flex-flow: column-wrap;
-}
+    /* 1) Simple vertical list (most likely what you want) */
+    .container {
+      display: flex;
+      flex-direction: column; /* stack items vertically */
+      gap: 10px;              /* space between items */
+    }
+
+    /* 2) If you want multiple columns using flex wrap:
+       - use "flex-flow: column wrap" (two words), not "column-wrap".
+       - to make wrapping occur you usually need a fixed container height
+         so columns form when the column fills vertically. */
+    /*
+    .container {
+      display: flex;
+      flex-flow: column wrap;
+      gap: 10px 10px;
+      height: 200px;  / * adjust to trigger wrapping into new columns * /
+    }
+    */
+
+    /* Note: gap for flex items is supported in modern browsers; if you need
+       older-browser support you may need margin on children instead. */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div><p>Item 1</p></div>
+    <div><p>Item 2</p></div>
+    <div><p>Item 3</p></div>
+    <div><p>Item 4</p></div>
+    <div><p>Item 5</p></div>
+    <div><p>Item 6</p></div>
+  </div>
+</body>
+</html>
